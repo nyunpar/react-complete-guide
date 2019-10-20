@@ -29,7 +29,7 @@ class App extends Component {
         <h1>Hai, ini aplikasi React</h1>
         <p>Ini benar-benar Bisa</p>
         <button
-          onClick={this.GantiNamaHandler.bind(this,'Fodi')}>Ganti Nama</button>
+          onClick={()=> this.GantiNamaHandler('Fodi')}>Ganti Nama</button>
         <Person 
           nama={this.state.persons[0].nama} 
           umur = {this.state.persons[0].umur}/>
