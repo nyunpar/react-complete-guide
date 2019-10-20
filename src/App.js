@@ -5,9 +5,9 @@ import  Person from './Person/Person';
 class App extends Component {
   state = {
     persons : [
-      {nama:'Jodi', umur:"23"},
-      {nama:'Dodi', umur:"32"},
-      {nama:'Kodi', umur:"25"}
+      {id:'adfasf',nama:'Jodi', umur:"23"},
+      {id:'adfadsa',nama:'Dodi', umur:"32"},
+      {id:'efaeda',nama:'Kodi', umur:"25"}
     ],
     otherState : 'some other value',
     showPersons : false
@@ -28,7 +28,7 @@ class App extends Component {
     persons.splice(personIndex,1);
     this.setState({persons:persons})
   }
-
+ 
   render(){
     const style ={
       backgroundColor:'white',
@@ -45,7 +45,8 @@ class App extends Component {
               return <Person 
                   click = {()=> this.hapusNamaHandler(index)}
                   nama={person.nama}
-                  umur={person.umur}/>
+                  umur={person.umur}
+                  key={person.id}/>
             })}
         </div> 
       );
