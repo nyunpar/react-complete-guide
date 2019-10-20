@@ -32,11 +32,19 @@ class App extends Component {
   }
 
   render(){
+    const style ={
+      backgroundColor:'white',
+      font:'inherit',
+      border: '1px solid blue',
+      padding :'8px',
+      cursor:'pointer'
+    };
     return (
       <div className="App">
         <h1>Hai, ini aplikasi React</h1>
         <p>Ini benar-benar Bisa</p>
         <button
+          style={style}
           onClick={()=> this.GantiNamaHandler('Fodi')}>Ganti Nama</button>
         <Person 
           nama={this.state.persons[0].nama} 
