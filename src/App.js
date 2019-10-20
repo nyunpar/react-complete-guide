@@ -16,12 +16,15 @@ class App extends Component {
     const doessShow = this.state.showPersons;
     this.setState({showPersons: !doessShow});
   }
-  namaBerubahHandler = (event)=>{
-    this.setState({persons:[
-      {nama:'Jodi', umur:"23"},
-      {nama: event.target.value , umur:"32"},
-      {nama:'Kodi', umur:"25"}] 
-    })
+  namaBerubahHandler = (event,id)=>{
+    const personIndex = this.state.persons.findIndex(p=>{
+      return p.id === id;
+    });
+    const person = {...this.state.persons[personIndex]};
+    person.nama = event.target.value;
+    const persons = [...this.state.persons];
+    persons[personIndex]=person;
+    this.setState({persons:persons})
   }
   hapusNamaHandler = (personIndex)=>{
     const persons = [...this.state.persons];
@@ -46,7 +49,8 @@ class App extends Component {
                   click = {()=> this.hapusNamaHandler(index)}
                   nama={person.nama}
                   umur={person.umur}
-                  key={person.id}/>
+                  key={person.id}
+                  changed={(event)=>this.namaBerubahHandler(event,person.id)}/>
             })}
         </div> 
       );
