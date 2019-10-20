@@ -7,12 +7,20 @@ class App extends Component {
     persons : [
       {nama:'Jodi', umur:"23"},
       {nama:'Dodi', umur:"32"},
-      {nama:'Kodi', umur:"25"},
-    ]
+      {nama:'Kodi', umur:"25"}
+    ],
+    otherState : 'some other value'
   }
 
-  GantiNamaHandler = ()=> {
-    console.log('Telah diklik!');
+  GantiNamaHandler = () => {
+    //console.log('Telah diklik!');
+    //this.state.persons[0].nama= "Jodi Foster";
+    this.setState({persons:[
+      {nama:'Jodi Foster', umur:"23"},
+      {nama:'Dodi', umur:"32"},
+      {nama:'Kodi', umur:"27"},
+    ]
+    })
   }
 
   render(){
