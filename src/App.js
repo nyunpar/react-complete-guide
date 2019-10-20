@@ -44,14 +44,9 @@ class App extends Component {
       padding :'8px',
       cursor:'pointer'
     };
-    return (
-      <div className="App">
-        <h1>Hai, ini aplikasi React</h1>
-        <p>Ini benar-benar Bisa</p>
-        <button
-          style={style}
-          onClick={this.HilangkanNamaHandle}>Ganti Nama</button>
-        {this.state.showPersons?
+    let persons = null;
+    if (this.state.showPersons){
+      persons = (
         <div>
         <Person 
           nama={this.state.persons[0].nama} 
@@ -64,7 +59,20 @@ class App extends Component {
         <Person 
           nama={this.state.persons[2].nama} 
           umur = {this.state.persons[2].umur}/>
-        </div>:null }
+      </div> 
+      );
+    }
+
+
+
+    return (
+      <div className="App">
+        <h1>Hai, ini aplikasi React</h1>
+        <p>Ini benar-benar Bisa</p>
+        <button
+          style={style}
+          onClick={this.HilangkanNamaHandle}>Ganti Nama</button>
+          {persons}
       </div>
     );
     //return React.createElement('div',{className:'App'},React.createElement('h1',null, 'Apakah ini bisa ditampilkan?'));
