@@ -8,6 +8,7 @@ class App extends Component {
         <h1>Hai, ini aplikasi React</h1>
       </div>
     );
+    //return React.createElement('div',{className:'App'},React.createElement('h1',null, 'Apakah ini bisa ditampilkan?'));
   }
 }
 
