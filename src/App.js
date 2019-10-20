@@ -10,12 +10,18 @@ class App extends Component {
       {nama:'Kodi', umur:"25"},
     ]
   }
+
+  GantiNamaHandler = ()=> {
+    console.log('Telah diklik!');
+  }
+
   render(){
     return (
       <div className="App">
         <h1>Hai, ini aplikasi React</h1>
         <p>Ini benar-benar Bisa</p>
-        <button>Ganti Nama</button>
+        <button
+          onClick={this.GantiNamaHandler}>Ganti Nama</button>
         <Person nama={this.state.persons[0].nama} umur = {this.state.persons[0].umur}/>
         <Person nama={this.state.persons[1].nama} umur = {this.state.persons[1].umur}>Hobiku: Baca</Person>
         <Person nama={this.state.persons[2].nama} umur = {this.state.persons[2].umur}/>
