@@ -9,7 +9,8 @@ class App extends Component {
       {nama:'Dodi', umur:"32"},
       {nama:'Kodi', umur:"25"}
     ],
-    otherState : 'some other value'
+    otherState : 'some other value',
+    showPersons : false
   }
 
   GantiNamaHandler = (NamaBaru) => {
@@ -22,12 +23,16 @@ class App extends Component {
     ]
     })
   }
+  
+  HilangkanNamaHandle = () =>{
+    const doessShow = this.state.showPersons;
+    this.setState({showPersons: !doessShow});
+  }
   namaBerubahHandler = (event)=>{
     this.setState({persons:[
       {nama:'Jodi', umur:"23"},
       {nama: event.target.value , umur:"32"},
-      {nama:'Kodi', umur:"25"},
-    ] 
+      {nama:'Kodi', umur:"25"}] 
     })
   }
 
@@ -45,7 +50,9 @@ class App extends Component {
         <p>Ini benar-benar Bisa</p>
         <button
           style={style}
-          onClick={()=> this.GantiNamaHandler('Fodi')}>Ganti Nama</button>
+          onClick={this.HilangkanNamaHandle}>Ganti Nama</button>
+        {this.state.showPersons?
+        <div>
         <Person 
           nama={this.state.persons[0].nama} 
           umur = {this.state.persons[0].umur}/>
@@ -57,6 +64,7 @@ class App extends Component {
         <Person 
           nama={this.state.persons[2].nama} 
           umur = {this.state.persons[2].umur}/>
+        </div>:null }
       </div>
     );
     //return React.createElement('div',{className:'App'},React.createElement('h1',null, 'Apakah ini bisa ditampilkan?'));
