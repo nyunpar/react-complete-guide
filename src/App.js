@@ -12,18 +12,6 @@ class App extends Component {
     otherState : 'some other value',
     showPersons : false
   }
-
-  GantiNamaHandler = (NamaBaru) => {
-    //console.log('Telah diklik!');
-    //this.state.persons[0].nama= "Jodi Foster";
-    this.setState({persons:[
-      {nama: NamaBaru, umur:"23"},
-      {nama:'Dodi', umur:"32"},
-      {nama:'Kodi', umur:"27"},
-    ]
-    })
-  }
-  
   HilangkanNamaHandle = () =>{
     const doessShow = this.state.showPersons;
     this.setState({showPersons: !doessShow});
@@ -34,6 +22,11 @@ class App extends Component {
       {nama: event.target.value , umur:"32"},
       {nama:'Kodi', umur:"25"}] 
     })
+  }
+  hapusNamaHandler = (personIndex)=>{
+    const persons = [...this.state.persons];
+    persons.splice(personIndex,1);
+    this.setState({persons:persons})
   }
 
   render(){
@@ -48,8 +41,9 @@ class App extends Component {
     if (this.state.showPersons){
       persons = (
         <div>
-            {this.state.persons.map(person =>{
+            {this.state.persons.map((person,index) =>{
               return <Person 
+                  click = {()=> this.hapusNamaHandler(index)}
                   nama={person.nama}
                   umur={person.umur}/>
             })}
