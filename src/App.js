@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import Radium,{StyleRoot} from 'radium';
-import './App.css';
+ // eslint-disable-next-line
+import  Classes from './App.module.css';
 import  Person from './Person/Person';
 
 class App extends Component {
@@ -41,10 +41,7 @@ class App extends Component {
       border: '1px solid blue',
       padding :'8px',
       cursor:'pointer',
-      ':hover':{
-        backgroundColor:'lightgreen',
-        color:'black'
-      }
+      
     };
     let persons = null;
     if (this.state.showPersons){
@@ -61,35 +58,30 @@ class App extends Component {
         </div> 
       );
       style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor:'salmon',
-        color:'black'
-      }
+      
     }
 
     let classes =[];
     if(this.state.persons.length <= 2 ){
-      classes.push("red");
+      classes.push(Classes.red);
     }
     if(this.state.persons.length <= 1 ){
-      classes.push("bold");
+      classes.push(Classes.bold);
     }
     
 
     return (
-      <StyleRoot>
-        <div className="App">
-          <h1>Hai, ini aplikasi React</h1>
-          <p className ={classes.join(' ')}>Ini benar-benar Bisa</p>
-          <button
-            style={style}
-            onClick={this.HilangkanNamaHandle}>Ganti Nama</button>
-            {persons}
-        </div>
-      </StyleRoot>
+      <div className={Classes.App}>
+        <h1>Hai, ini aplikasi React</h1>
+        <p className ={classes.join(' ')}>Ini benar-benar Bisa</p>
+        <button
+          style={style}
+          onClick={this.HilangkanNamaHandle}>Ganti Nama</button>
+          {persons}
+      </div>
     );
     //return React.createElement('div',{className:'App'},React.createElement('h1',null, 'Apakah ini bisa ditampilkan?'));
   }
 }
 
-export default Radium(App);
+export default App;
