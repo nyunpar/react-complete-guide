@@ -34,16 +34,8 @@ class App extends Component {
   }
  
   render(){
-    const style ={
-      backgroundColor:'green',
-      color: 'white',
-      font:'inherit',
-      border: '1px solid blue',
-      padding :'8px',
-      cursor:'pointer',
-      
-    };
     let persons = null;
+    let btnClass = '';
     if (this.state.showPersons){
       persons = (
         <div>
@@ -57,9 +49,8 @@ class App extends Component {
             })}
         </div> 
       );
-      style.backgroundColor = 'red';
-      
-    }
+      btnClass =  Classes.Red;
+      }
 
     let classes =[];
     if(this.state.persons.length <= 2 ){
@@ -75,7 +66,7 @@ class App extends Component {
         <h1>Hai, ini aplikasi React</h1>
         <p className ={classes.join(' ')}>Ini benar-benar Bisa</p>
         <button
-          style={style}
+          className= {btnClass}
           onClick={this.HilangkanNamaHandle}>Ganti Nama</button>
           {persons}
       </div>
