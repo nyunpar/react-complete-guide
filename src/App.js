@@ -18,7 +18,7 @@ class App extends Component {
     this.setState({showPersons: !doessShow});
   }
   namaBerubahHandler = (event,id)=>{
-    const personIndex = this.state.persons.findIndex(p=>{
+    const personIndex = this.state.persons.findIndex(p => {
       return p.id === id;
     });
     const person = {...this.state.persons[personIndex]};
